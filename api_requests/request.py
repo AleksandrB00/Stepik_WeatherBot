@@ -2,7 +2,7 @@ import json
 
 import requests
 
-from ..settings import api_config
+from settings import api_config
 
 def get_city_coord(city):
     payload = {'geocode' : city, 'apikey' : api_config.geo_key, 'format' : 'json'}
