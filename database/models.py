@@ -1,7 +1,7 @@
 from datetime import datetime
 
 
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, BigInteger
 from sqlalchemy.ext.declarative import declarative_base 
 from sqlalchemy.orm import relationship
 
@@ -12,7 +12,7 @@ class User(Base):
     __tablename__ = 'Users'
     id = Column(Integer, primary_key=True)
     connection_date = Column(DateTime, default=datetime.now, nullable=False)
-    tg_id = Column(Integer, nullable=False)
+    tg_id = Column(BigInteger, nullable=False)
     city = Column(String)
     reports = relationship('WeatherReport', backref='report', lazy=True, cascade='all, delete-orphan')
 

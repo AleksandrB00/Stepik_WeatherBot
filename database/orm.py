@@ -41,3 +41,21 @@ def get_user_city(tg_id):
     session = Session()
     user = session.query(User).filter(User.tg_id == tg_id).first()
     return user.city
+
+def get_reports(tg_id):
+    engine = create_engine(database_config.url, echo=True)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    user = session.query(User).filter(User.tg_id == tg_id).first()
+    reports = user.reports
+    return reports
+
+def delete_user_report(report_id):
+    engine = create_engine(database_config.url, echo=True)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    report = session.get(WeatherReport, report_id)
+    session.delete(report)
+    session.commit()
