@@ -1,2 +1,2 @@
-geo_key = 'Ключ от Геокодера'
-weather_key = {'X-Yandex-API-Key' : 'Ключ от Яндекс.Погода'}
+geo_key = 'Ключ API Геокодера'
+weather_key = {'X-Yandex-API-Key' : 'Ключ API Яндекс.Погода'}

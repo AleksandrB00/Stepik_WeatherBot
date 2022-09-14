@@ -59,3 +59,11 @@ def delete_user_report(report_id):
     report = session.get(WeatherReport, report_id)
     session.delete(report)
     session.commit()
+
+def get_all_users():
+    engine = create_engine(database_config.url, echo=True)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    users = session.query(User).all()
+    return users
